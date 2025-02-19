@@ -9,7 +9,11 @@ CONTENT_DIR = "."
 
 # Template dasar sitemap
 SITEMAP_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 {}
 </urlset>
 """
@@ -33,13 +37,12 @@ def generate_sitemap():
             else:
                 continue  # Lewati jika bukan file HTML
 
-            lastmod = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+            # Menggunakan waktu UTC + 7 jam untuk mendapatkan waktu GMT+7
+            lastmod = (datetime.utcnow() + timedelta(hours=7)).strftime("%Y-%m-%dT%H:%M:%S+07:00")
 
             url_entry = f"""  <url>
     <loc>{file_url}</loc>
     <lastmod>{lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
   </url>"""
 
             url_entries.append(url_entry)
@@ -49,7 +52,7 @@ def generate_sitemap():
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_content)
 
-    print("✅ Sitemap berhasil diperbarui!")
+    print("✅ Sitemap berhasil diperbarui dengan waktu GMT+7!")
 
 if __name__ == "__main__":
     generate_sitemap()
