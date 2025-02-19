@@ -27,7 +27,7 @@ jobs:
         run: pip install -r requirements.txt || true  # Jika ada dependency, tambahkan di requirements.txt
 
       - name: Generate sitemap
-        run: python generate_sitemap.py  # Jalankan script untuk membuat sitemap.xml
+        run: python $GITHUB_WORKSPACE/generate_sitemap.py # Jalankan script untuk membuat sitemap.xml
 
       - name: Commit and push changes
         env:
