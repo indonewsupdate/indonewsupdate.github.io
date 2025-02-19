@@ -1,4 +1,5 @@
 import os
+import time
 from datetime import datetime
 
 # URL dasar situs GitHub Pages Anda
@@ -20,11 +21,13 @@ def generate_sitemap():
     
     for root, _, files in os.walk(CONTENT_DIR):
         for file in files:
-            if file.endswith(".html") and file != "index.html":
+            if file.endswith(".html") and file not in ["index.html", "404.html"]:  # Hindari 404.html
                 file_path = os.path.relpath(os.path.join(root, file), CONTENT_DIR)
                 file_url = f"{BASE_URL}/{file_path.replace(os.sep, '/')}"
                 
-                lastmod = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+                # Ambil waktu modifikasi terakhir dari file
+                lastmod_unix = os.path.getmtime(os.path.join(root, file))
+                lastmod = datetime.utcfromtimestamp(lastmod_unix).strftime("%Y-%m-%dT%H:%M:%S+00:00")
                 
                 url_entry = f"""  <url>
     <loc>{file_url}</loc>
