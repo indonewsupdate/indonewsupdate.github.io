@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta  # Tambahkan timedelta
 
 # URL dasar situs GitHub Pages Anda
 BASE_URL = "https://indonewsupdate.github.io"
