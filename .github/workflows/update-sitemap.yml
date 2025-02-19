@@ -24,6 +24,9 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
+        run: pip install pytz
+
+      - name: Install dependencies
         run: pip install -r requirements.txt || true  # Jika ada dependency, tambahkan di requirements.txt
 
       - name: Generate sitemap
