@@ -1,5 +1,5 @@
 import os
-from datetime import datetime, timedelta, timezone  # ✅ Tambahkan timezone
+from datetime import datetime, timedelta, timezone
 
 # URL dasar situs GitHub Pages Anda
 BASE_URL = "https://indonewsupdate.github.io"
@@ -37,8 +37,8 @@ def generate_sitemap():
             else:
                 continue  # Lewati jika bukan file HTML
 
-            # ✅ Menggunakan datetime.now(timezone.utc) + 7 jam untuk GMT+7
-            lastmod = (datetime.now(timezone.utc) + timedelta(hours=7)).strftime("%Y-%m-%dT%H:%M:%S+07:00")
+            # ✅ Menggunakan datetime.now(timezone.utc) untuk mendapatkan waktu UTC
+            lastmod = (datetime.now(timezone.utc) + timedelta(hours=7)).isoformat()
 
             url_entry = f"""  <url>
     <loc>{file_url}</loc>
