@@ -24,11 +24,13 @@ jobs:
           python-version: '3.x'
 
       - name: Install dependencies
-        run: |
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+        run: pip install pytz
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt || true  # Jika ada dependency, tambahkan di requirements.txt
 
       - name: Generate sitemap
-        run: python generate_sitemap.py  # Jalankan script untuk membuat sitemap.xml
+        run: python $GITHUB_WORKSPACE/generate_sitemap.py # Jalankan script untuk membuat sitemap.xml
 
       - name: Commit and push changes
         env:
@@ -38,4 +40,4 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git add sitemap.xml
           git commit -m "Update sitemap.xml" || echo "No changes to commit"
-          git push origin main
+          git push "https://${GH_TOKEN}@github.com/indonewsupdate/indonewsupdate.github.io.git" main
