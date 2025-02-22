@@ -20,14 +20,14 @@
   <h2>📌 Daftar Postingan</h2>
   <p id="loading" class="loading">Memuat postingan...</p>
   <ul id="post-list" class="sitemap-list"></ul>
-  <a href="https://shortnewsid.github.io" class="btn">🔗 Kunjungi Situs</a>
+  <a href="https://indonewsupdate.github.io" class="btn">🔗 Kunjungi Situs</a>
   </div>
 </div>
 
 <script>
   async function loadSitemap() {
     try {
-      const response = await fetch("https://shortnewsid.github.io/sitemap.xml");
+      const response = await fetch("https://indonewsupdate.github.io/sitemap.xml");
       const text = await response.text();
       
       // Parsing XML
@@ -40,7 +40,7 @@
 
       for (let i = 1; i < urls.length; i++) {  // Mulai dari index 1 agar tidak menampilkan halaman utama
         const url = urls[i].textContent;
-        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://shortnewsid.github.io/today/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
+        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://indonewsupdate.github.io/today/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
       }
       
       document.getElementById("post-list").innerHTML = output;
