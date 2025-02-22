@@ -40,7 +40,7 @@
 
       for (let i = 1; i < urls.length; i++) {  // Mulai dari index 1 agar tidak menampilkan halaman utama
         const url = urls[i].textContent;
-        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://indonewsupdate.github.io/today/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
+        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://indonewsupdate.github.io/hotnews/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
       }
       
       document.getElementById("post-list").innerHTML = output;
