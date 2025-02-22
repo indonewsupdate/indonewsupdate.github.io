@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>INDO NEWS UPDATE</title>
 	<link rel="icon" href="/img/icon.png">
-<link rel="stylesheet" href="style.css">	
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
@@ -15,7 +15,44 @@
             <h1>INDO NEWS UPDATE</h1>
             <p> Update Informasi Terbaru Hari Ini Terpercaya</p>
 		<p><a href="https://indonewsupdate.github.io/sitemap.xml"><strong>SITEMAP</strong></a></p>
-        <br><br><br><br><br>
+		<div class="container">
+		    <div class="profile1">
+  <h2>📌 Daftar Postingan</h2>
+  <p id="loading" class="loading">Memuat postingan...</p>
+  <ul id="post-list" class="sitemap-list"></ul>
+  <a href="https://shortnewsid.github.io" class="btn">🔗 Kunjungi Situs</a>
+  </div>
+</div>
+
+<script>
+  async function loadSitemap() {
+    try {
+      const response = await fetch("https://shortnewsid.github.io/sitemap.xml");
+      const text = await response.text();
+      
+      // Parsing XML
+      const parser = new DOMParser();
+      const xmlDoc = parser.parseFromString(text, "text/xml");
+      
+      // Ambil semua <loc> dalam sitemap
+      const urls = xmlDoc.getElementsByTagName("loc");
+      let output = "";
+
+      for (let i = 1; i < urls.length; i++) {  // Mulai dari index 1 agar tidak menampilkan halaman utama
+        const url = urls[i].textContent;
+        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://shortnewsid.github.io/today/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
+      }
+      
+      document.getElementById("post-list").innerHTML = output;
+      document.getElementById("loading").style.display = "none"; // Sembunyikan teks loading
+    } catch (error) {
+      console.error("Gagal memuat sitemap:", error);
+      document.getElementById("loading").innerText = "Gagal memuat postingan.";
+    }
+  }
+
+  window.onload = loadSitemap;
+</script>
         <div class="footer">
         <p>© 2025. INDO NEWS UPDATE - All Rights Reserved</p>
         </div>
