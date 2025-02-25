@@ -1,62 +1,128 @@
 
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>INDO NEWS UPDATE</title>
+    <meta name="robots" content="index, follow">
+	<meta name="googlebot" content="all">
+	<meta name="bingbot" content="all">
+	<meta name="yandexbot" content="all">
+	<meta name="language" content="id">
+	<meta name="author" content="IndoNewsUpdate">
+	<meta name="copyright" content="IndoNewsUpdate">
+	<meta name="publisher" content="IndoNewsUpdate">
+	<meta name="distribution" content="global">
+	<meta name="geo.placename" content="Jawa Barat">
+	<meta name="geo.country" content="ID">
+	<meta name="geo.region" content="ID">
+	<meta name="tgn.nation" content="Indonesia">
+	<meta name="HandheldFriendly" content="true">
+	<meta name="MobileOptimized" content="width">
+    
+    <!-- Title & Description -->
+	<title>INDO NEWS UPDATE</title>
+	<meta name="description" content="Update Informasi Terbaru Hari Ini Terpercaya">
+	<meta name="keywords" content="Kasino Online, game slot, indonewsupdate">
+
+	<!-- Canonical URL -->
+	<link rel="canonical" href="https://indonewsupdate.github.io/">
+	<link rel="dns-prefetch" href="https://indonewsupdate.github.io/" />
+	<link rel="alternate" hreflang="id-ID" href="https://indonewsupdate.github.io/" />
+    <link rel="alternate" hreflang="id" href="https://indonewsupdate.github.io/" />
+    <link rel="alternate" hreflang="x-default" href="https://indonewsupdate.github.io/" />
+
+	<!-- Open Graph -->
+	<meta property="og:site_name" content="IndoNews Update">
+	<meta property="og:title" content="INDO NEWS UPDATE">
+	<meta property="og:url" content="https://indonewsupdate.github.io/">
+	<meta property="og:type" content="article">
+	<meta property="og:description" content="Update Informasi Terbaru Hari Ini Terpercaya">
+	<meta property="og:image" content="/img/indonewsupdate.gif">
+	<meta property="og:image:width" content="300">
+	<meta property="og:image:height" content="66">
+	<meta property="og:locale" content="id_ID">
+	<meta property="og:region" content="Jawa Barat">
+	<meta property="og:country-name" content="Indonesia">
+
+	<!-- OG Article -->
+	<meta property="article:author" content="IndoNewsUpdate">
+	<meta property="article:section" content="Home, Game Slot, Kasino Online, ">
+	<meta property="article:tag" content="kasino-online, gamaslot, indonewsupdate">
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="INDO NEWS UPDATE">
+	<meta name="twitter:description" content="Update Informasi Terbaru Hari Ini Terpercaya">
+	<meta name="twitter:image" content="/img/indonewsupdate.gif">
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" sizes="32x32" href="https://indonewsupdate.github.io/img/icon.png">
+	<link rel="apple-touch-icon" href="https://indonewsupdate.github.io/img/icon.png">
 	<link rel="icon" href="/img/icon.png">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="container">
-        <div class="profile"><br><br>
-			<img src="/img/indonewsupdate.gif" alt="indonewsupdate">
+        <!-- Header dengan Logo -->
+        <div class="header">
+            <img src="/img/indonewsupdate.gif" alt="indonewsupdate">
             <h1>INDO NEWS UPDATE</h1>
-            <p> Update Informasi Terbaru Hari Ini Terpercaya</p>
-		<p><a href="https://indonewsupdate.github.io/sitemap.xml"><strong>SITEMAP</strong></a></p>
-		<div class="container">
-		    <div class="profile1">
-  <h2>📌 Daftar Postingan</h2>
-  <p id="loading" class="loading">Memuat postingan...</p>
-  <ul id="post-list" class="sitemap-list"></ul>
-  <a href="https://indonewsupdate.github.io" class="btn">🔗 Kunjungi Situs</a>
-  </div>
-</div>
+        </div>
 
-<script>
-  async function loadSitemap() {
-    try {
-      const response = await fetch("https://indonewsupdate.github.io/sitemap.xml");
-      const text = await response.text();
-      
-      // Parsing XML
-      const parser = new DOMParser();
-      const xmlDoc = parser.parseFromString(text, "text/xml");
-      
-      // Ambil semua <loc> dalam sitemap
-      const urls = xmlDoc.getElementsByTagName("loc");
-      let output = "";
+        <div class="profile">
+            <p>Update Informasi Terbaru Hari Ini Terpercaya</p>
 
-      for (let i = 1; i < urls.length; i++) {  // Mulai dari index 1 agar tidak menampilkan halaman utama
-        const url = urls[i].textContent;
-        output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://indonewsupdate.github.io/hotnews/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
-      }
-      
-      document.getElementById("post-list").innerHTML = output;
-      document.getElementById("loading").style.display = "none"; // Sembunyikan teks loading
-    } catch (error) {
-      console.error("Gagal memuat sitemap:", error);
-      document.getElementById("loading").innerText = "Gagal memuat postingan.";
-    }
-  }
+            <!-- Tombol Sitemap dan Author -->
+            <div class="button-container">
+                <a href="https://indonewsupdate.github.io/sitemap.xml" class="button">📜 Sitemap</a>
+                <a href="https://github.com/indonewsupdate" class="button">👤 Author</a>
+            </div>
+        </div>
 
-  window.onload = loadSitemap;
-</script>
+        <div class="container">
+            <div class="profile1">
+                <h2>📌 Daftar Postingan</h2>
+                <p id="loading" class="loading">Memuat postingan...</p>
+                <ul id="post-list" class="sitemap-list"></ul>
+                <a href="https://indonewsupdate.github.io" class="button">🔗 Kunjungi Situs</a>
+            </div>
+        </div>
+
         <div class="footer">
-        <p>© 2025. INDO NEWS UPDATE - All Rights Reserved</p>
+            <p>© 2025. INDO NEWS UPDATE - All Rights Reserved</p>
         </div>
     </div>
-    </div>
+
+    <script>
+        async function loadSitemap() {
+            try {
+                const response = await fetch("https://indonewsupdate.github.io/sitemap.xml");
+                const text = await response.text();
+                
+                // Parsing XML
+                const parser = new DOMParser();
+                const xmlDoc = parser.parseFromString(text, "text/xml");
+                
+                // Ambil semua <loc> dalam sitemap
+                const urls = xmlDoc.getElementsByTagName("loc");
+                let output = "";
+
+                for (let i = 1; i < urls.length; i++) {  
+                    const url = urls[i].textContent;
+                    output += `<li><a href="${url}" target="_blank">🔗 ${url.replace("https://indonewsupdate.github.io/hotnews/", "").replace(".html", "").replace(/-/g, " ")}</a></li>`;
+                }
+                
+                document.getElementById("post-list").innerHTML = output;
+                document.getElementById("loading").style.display = "none"; 
+            } catch (error) {
+                console.error("Gagal memuat sitemap:", error);
+                document.getElementById("loading").innerText = "Gagal memuat postingan.";
+            }
+        }
+
+        window.onload = loadSitemap;
+    </script>
 </body>
 </html>
